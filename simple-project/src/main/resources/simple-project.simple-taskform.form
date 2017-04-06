@@ -1,0 +1,29 @@
+
+<form id="1749742078">
+<property name="name" value="simple-project.simple-taskform.form"/>
+<property name="displayMode" value="default"/>
+<property name="status" value="0"/>
+<field position="0" name="customer_name" type="InputText" id="335561091">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;name (customer)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="customer/name"/>
+<property name="fieldClass" value="java.lang.String"/>
+</field>
+<field position="1" name="customer_premium" type="CheckBox" id="1494159289">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;premium (customer)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="customer/premium"/>
+<property name="fieldClass" value="java.lang.Boolean"/>
+</field>
+<field position="2" name="compensate" type="CheckBox" id="1780945311">
+<property name="fieldRequired" value="false"/>
+<property name="label" value="quot;enquot;,quot;compensate (compensate)quot;"/>
+<property name="readonly" value="false"/>
+<property name="outputBinding" value="compensate"/>
+<property name="fieldClass" value="java.lang.Boolean"/>
+</field>
+<dataHolder inputId="" name="#FF54A7" type="basicType" outId="compensate" value="java.lang.Boolean" id="compensate"/>
+<dataHolder inputId="" name="#E9E371" type="dataModelerEntry" outId="customer" value="example.Customer" id="customer"/>
+</form>
