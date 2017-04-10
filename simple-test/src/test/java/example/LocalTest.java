@@ -9,6 +9,8 @@ import org.jbpm.workflow.instance.WorkflowProcessInstance;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.kie.api.KieServices;
+import org.kie.api.logger.KieRuntimeLogger;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.manager.RuntimeEngine;
 import org.kie.api.runtime.process.WorkItemHandler;
@@ -19,6 +21,7 @@ public class LocalTest extends JbpmJUnitBaseTestCase {
 	KieSession ksession;
 	private TaskService taskService;
 	private RuntimeEngine engine;
+	private KieRuntimeLogger logger;
 
 	public LocalTest() {
 		super(true, true);
@@ -32,15 +35,20 @@ public class LocalTest extends JbpmJUnitBaseTestCase {
 		ksession = engine.getKieSession();
 		taskService = engine.getTaskService();
 
+		//--- Register WorkItemHandler ---
 		WorkItemHandler handler = new org.jbpm.process.workitem.rest.RESTWorkItemHandler(
 				this.getClass().getClassLoader());
 
 		ksession.getWorkItemManager().registerWorkItemHandler("Rest", handler);
+		
+		//--- Logger ---
+		logger = KieServices.Factory.get().getLoggers().newThreadedFileLogger(ksession, "mylogfile", 1000);
 	}
 
 	@After
 	public void after() {
 		ksession.dispose();
+		logger.close();
 	}
 
 	@Test
