@@ -13,7 +13,7 @@ import org.kie.server.client.ProcessServicesClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import example.Customer;
+import simple.bom.Customer;
 
 
 public class Main {
@@ -40,7 +40,7 @@ public class Main {
 			Set<Class<?>> extraClasses = new HashSet<Class<?>>();	
 			extraClasses.add(Customer.class);
 			config.addExtraClasses(extraClasses);
-			config.setMarshallingFormat(MarshallingFormat.XSTREAM);
+			config.setMarshallingFormat(MarshallingFormat.JSON);
 			Map<String, String> headers = null;
 			config.setHeaders(headers);
 			

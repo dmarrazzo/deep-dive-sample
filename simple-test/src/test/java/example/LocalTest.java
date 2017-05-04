@@ -17,6 +17,8 @@ import org.kie.api.runtime.process.WorkItemHandler;
 import org.kie.api.task.TaskService;
 import org.kie.api.task.model.TaskSummary;
 
+import simple.bom.Customer;
+
 public class LocalTest extends JbpmJUnitBaseTestCase {
 	KieSession ksession;
 	private TaskService taskService;

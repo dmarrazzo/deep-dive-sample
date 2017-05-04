@@ -25,5 +25,5 @@
 <property name="fieldClass" value="java.lang.Boolean"/>
 </field>
 <dataHolder inputId="" name="#FF54A7" type="basicType" outId="compensate" value="java.lang.Boolean" id="compensate"/>
-<dataHolder inputId="" name="#E9E371" type="dataModelerEntry" outId="customer" value="example.Customer" id="customer"/>
+<dataHolder inputId="" name="#E9E371" type="dataModelerEntry" outId="customer" value="simple.bom.Customer" id="customer"/>
 </form>

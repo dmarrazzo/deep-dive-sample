@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_L720EBqvEee1k927B3z9iA" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" exporter="jBPM Designer" exporterVersion="6.2.0" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.omg.org/bpmn20" typeLanguage="http://www.java.com/javaTypes">
-  <bpmn2:itemDefinition id="_customerItem" structureRef="example.Customer"/>
+  <bpmn2:itemDefinition id="_customerItem" structureRef="simple.bom.Customer"/>
   <bpmn2:itemDefinition id="__45030C01-DA21-4987-B06B-BD0DEE36D61A_TaskNameInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__45030C01-DA21-4987-B06B-BD0DEE36D61A_customerInputXItem" structureRef="example.Customer"/>
+  <bpmn2:itemDefinition id="__45030C01-DA21-4987-B06B-BD0DEE36D61A_customerInputXItem" structureRef="simple.bom.Customer"/>
   <bpmn2:itemDefinition id="__45030C01-DA21-4987-B06B-BD0DEE36D61A_GroupIdInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__45030C01-DA21-4987-B06B-BD0DEE36D61A_SkippableInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__45030C01-DA21-4987-B06B-BD0DEE36D61A_NotCompletedReassignInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__45030C01-DA21-4987-B06B-BD0DEE36D61A_NotStartedReassignInputXItem" structureRef="Object"/>
-  <bpmn2:itemDefinition id="__45030C01-DA21-4987-B06B-BD0DEE36D61A_customerOutputXItem" structureRef="example.Customer"/>
+  <bpmn2:itemDefinition id="__45030C01-DA21-4987-B06B-BD0DEE36D61A_customerOutputXItem" structureRef="simple.bom.Customer"/>
   <bpmn2:itemDefinition id="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_TaskNameInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ReadTimeoutInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_UrlInputXItem" structureRef="String"/>
@@ -16,7 +16,7 @@
   <bpmn2:itemDefinition id="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_MethodInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_PasswordInputXItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ResultClassInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ResultOutputXItem" structureRef="example.Customer"/>
+  <bpmn2:itemDefinition id="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ResultOutputXItem" structureRef="simple.bom.Customer"/>
   <bpmn2:process id="simple-project.simple-ht" drools:packageName="org.jbpm" drools:version="1.0" name="simple-ht" isExecutable="true">
     <bpmn2:property id="customer" itemSubjectRef="_customerItem"/>
     <bpmn2:startEvent id="processStartEvent" drools:selectable="true" color:background-color="#9acd32" color:border-color="#000000" color:color="#000000" name="">
@@ -37,12 +37,12 @@
       <bpmn2:outgoing>_2B4DC2BD-BAEC-4DBB-AA54-E5641ECBC843</bpmn2:outgoing>
       <bpmn2:ioSpecification id="_L720ERqvEee1k927B3z9iA">
         <bpmn2:dataInput id="_45030C01-DA21-4987-B06B-BD0DEE36D61A_TaskNameInputX" drools:dtype="String" itemSubjectRef="__45030C01-DA21-4987-B06B-BD0DEE36D61A_TaskNameInputXItem" name="TaskName"/>
-        <bpmn2:dataInput id="_45030C01-DA21-4987-B06B-BD0DEE36D61A_customerInputX" drools:dtype="example.Customer" itemSubjectRef="__45030C01-DA21-4987-B06B-BD0DEE36D61A_customerInputXItem" name="customer"/>
+        <bpmn2:dataInput id="_45030C01-DA21-4987-B06B-BD0DEE36D61A_customerInputX" drools:dtype="simple.bom.Customer" itemSubjectRef="__45030C01-DA21-4987-B06B-BD0DEE36D61A_customerInputXItem" name="customer"/>
         <bpmn2:dataInput id="_45030C01-DA21-4987-B06B-BD0DEE36D61A_GroupIdInputX" drools:dtype="Object" itemSubjectRef="__45030C01-DA21-4987-B06B-BD0DEE36D61A_GroupIdInputXItem" name="GroupId"/>
         <bpmn2:dataInput id="_45030C01-DA21-4987-B06B-BD0DEE36D61A_SkippableInputX" drools:dtype="Object" itemSubjectRef="__45030C01-DA21-4987-B06B-BD0DEE36D61A_SkippableInputXItem" name="Skippable"/>
         <bpmn2:dataInput id="_45030C01-DA21-4987-B06B-BD0DEE36D61A_NotCompletedReassignInputX" drools:dtype="Object" itemSubjectRef="__45030C01-DA21-4987-B06B-BD0DEE36D61A_NotCompletedReassignInputXItem" name="NotCompletedReassign"/>
         <bpmn2:dataInput id="_45030C01-DA21-4987-B06B-BD0DEE36D61A_NotStartedReassignInputX" drools:dtype="Object" itemSubjectRef="__45030C01-DA21-4987-B06B-BD0DEE36D61A_NotStartedReassignInputXItem" name="NotStartedReassign"/>
-        <bpmn2:dataOutput id="_45030C01-DA21-4987-B06B-BD0DEE36D61A_customerOutputX" drools:dtype="example.Customer" itemSubjectRef="__45030C01-DA21-4987-B06B-BD0DEE36D61A_customerOutputXItem" name="customer"/>
+        <bpmn2:dataOutput id="_45030C01-DA21-4987-B06B-BD0DEE36D61A_customerOutputX" drools:dtype="simple.bom.Customer" itemSubjectRef="__45030C01-DA21-4987-B06B-BD0DEE36D61A_customerOutputXItem" name="customer"/>
         <bpmn2:inputSet id="_L720EhqvEee1k927B3z9iA">
           <bpmn2:dataInputRefs>_45030C01-DA21-4987-B06B-BD0DEE36D61A_customerInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_45030C01-DA21-4987-B06B-BD0DEE36D61A_GroupIdInputX</bpmn2:dataInputRefs>
@@ -130,7 +130,7 @@
         <bpmn2:dataInput id="_DCA00B75-E7AF-409B-8EC4-3F869188C2E2_MethodInputX" drools:dtype="String" itemSubjectRef="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_MethodInputXItem" name="Method"/>
         <bpmn2:dataInput id="_DCA00B75-E7AF-409B-8EC4-3F869188C2E2_PasswordInputX" drools:dtype="String" itemSubjectRef="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_PasswordInputXItem" name="Password"/>
         <bpmn2:dataInput id="_DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ResultClassInputX" drools:dtype="String" itemSubjectRef="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ResultClassInputXItem" name="ResultClass"/>
-        <bpmn2:dataOutput id="_DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ResultOutputX" drools:dtype="example.Customer" itemSubjectRef="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ResultOutputXItem" name="Result"/>
+        <bpmn2:dataOutput id="_DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ResultOutputX" drools:dtype="simple.bom.Customer" itemSubjectRef="__DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ResultOutputXItem" name="Result"/>
         <bpmn2:inputSet id="_L73bLxqvEee1k927B3z9iA">
           <bpmn2:dataInputRefs>_DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ReadTimeoutInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_DCA00B75-E7AF-409B-8EC4-3F869188C2E2_UrlInputX</bpmn2:dataInputRefs>
@@ -169,7 +169,7 @@
       <bpmn2:dataInputAssociation id="_L73bPRqvEee1k927B3z9iA">
         <bpmn2:targetRef>_DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ResultClassInputX</bpmn2:targetRef>
         <bpmn2:assignment id="_L73bPhqvEee1k927B3z9iA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_L73bPxqvEee1k927B3z9iA"><![CDATA["example.Customer"]]></bpmn2:from>
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_L73bPxqvEee1k927B3z9iA"><![CDATA["simple.bom.Customer"]]></bpmn2:from>
           <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_L73bQBqvEee1k927B3z9iA">_DCA00B75-E7AF-409B-8EC4-3F869188C2E2_ResultClassInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
