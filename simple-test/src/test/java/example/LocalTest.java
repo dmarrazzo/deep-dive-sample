@@ -1,6 +1,7 @@
 package example;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +14,8 @@ import org.kie.api.KieServices;
 import org.kie.api.logger.KieRuntimeLogger;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.manager.RuntimeEngine;
+import org.kie.api.runtime.manager.audit.AuditService;
+import org.kie.api.runtime.manager.audit.ProcessInstanceLog;
 import org.kie.api.runtime.process.WorkItemHandler;
 import org.kie.api.task.TaskService;
 import org.kie.api.task.model.TaskSummary;
@@ -20,10 +23,12 @@ import org.kie.api.task.model.TaskSummary;
 import simple.bom.Customer;
 
 public class LocalTest extends JbpmJUnitBaseTestCase {
+	private static final String SIMPLE_HT = "simple-project.simple-ht";
 	KieSession ksession;
 	private TaskService taskService;
 	private RuntimeEngine engine;
 	private KieRuntimeLogger logger;
+	private AuditService auditService;
 
 	public LocalTest() {
 		super(true, true);
@@ -36,6 +41,7 @@ public class LocalTest extends JbpmJUnitBaseTestCase {
 
 		ksession = engine.getKieSession();
 		taskService = engine.getTaskService();
+		auditService = engine.getAuditService();
 
 		//--- Register WorkItemHandler ---
 		WorkItemHandler handler = new org.jbpm.process.workitem.rest.RESTWorkItemHandler(
@@ -65,7 +71,7 @@ public class LocalTest extends JbpmJUnitBaseTestCase {
 		variablesMap.put("customer", customer);
 
 		WorkflowProcessInstance processInstance = (WorkflowProcessInstance) ksession
-				.startProcess("simple-project.simple-ht", variablesMap);
+				.startProcess(SIMPLE_HT, variablesMap);
 
 		// User Task
 		assertNodeTriggered(processInstance.getId(), "user");
@@ -83,6 +89,28 @@ public class LocalTest extends JbpmJUnitBaseTestCase {
 		// COMPLETED
 		assertProcessInstanceCompleted(processInstance.getId());
 
+	}
+	
+	@Test
+	public void testListOfProc() {
+		// -------------
+		Customer customer = new Customer("sasa", true);
+
+		// -------------
+		Map<String, Object> variablesMap = new HashMap<String, Object>();
+
+		variablesMap.put("customer", customer);
+
+		WorkflowProcessInstance pi = (WorkflowProcessInstance) ksession
+				.startProcess(SIMPLE_HT, variablesMap);
+
+		pi = (WorkflowProcessInstance) ksession
+				.startProcess(SIMPLE_HT, variablesMap);
+
+		List<? extends ProcessInstanceLog> instances = auditService.findProcessInstances(SIMPLE_HT);
+		for (ProcessInstanceLog processInstance : instances) {
+			System.out.println(">>> " + processInstance.getProcessInstanceId());
+		}
 	}
 
 }
